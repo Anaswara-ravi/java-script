@@ -1,0 +1,541 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Library Management System</h1>
+
+        <!-- Book Form -->
+        <form id="libraryForm">
+
+            <input type="text" id="title" placeholder="Enter book title">
+
+            <input type="text" id="author" placeholder="Enter author name">
+
+            <input type="text" id="category" placeholder="Enter category">
+
+            <input type="number" id="year" placeholder="Enter year">
+
+            <button type="submit" id="submitBtn">Add Book</button>
+
+        </form>
+
+
+        <!-- Search -->
+        <input
+            type="text"
+            class="search-input"
+            id="searchInput"
+            placeholder="Search books..."
+        >
+
+
+        <!-- Statistics -->
+        <div class="status">
+
+            <div>
+                <h3 id="totalBooks">0</h3>
+                <p>Total Books</p>
+            </div>
+
+            <div>
+                <h3 id="availableBooks">0</h3>
+                <p>Available Books</p>
+            </div>
+
+            <div>
+                <h3 id="issuedBooks">0</h3>
+                <p>Issued Books</p>
+            </div>
+
+        </div>
+
+
+        <!-- Books Table -->
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>No</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Category</th>
+                    <th>Year</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+
+            </thead>
+
+            <tbody id="bookTable">
+            </tbody>
+
+        </table>
+
+
+        <p id="noBooks">No books available</p>
+
+    </div>
+
+
+    <script>
+
+        // JSON = JavaScript Object Notation
+
+
+        // Get HTML elements
+
+        const bookForm = document.getElementById("libraryForm");
+
+        const titleInput = document.getElementById("title");
+
+        const authorInput = document.getElementById("author");
+
+        const categoryInput = document.getElementById("category");
+
+        const yearInput = document.getElementById("year");
+
+        const submitBtn = document.getElementById("submitBtn");
+
+        const bookTable = document.getElementById("bookTable");
+
+        const searchInput = document.getElementById("searchInput");
+
+        const noBooks = document.getElementById("noBooks");
+
+        const totalBooks = document.getElementById("totalBooks");
+
+        const availableBooks = document.getElementById("availableBooks");
+
+        const issuedBooks = document.getElementById("issuedBooks");
+
+
+        // Get books from Local Storage
+
+        let books = JSON.parse(localStorage.getItem("books")) || [];
+
+
+        // Used while editing
+
+        let editIndex = null;
+
+
+        // Display books when page loads
+
+        displayBooks();
+
+
+        // Form submit - Create + Update
+
+        bookForm.addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+
+            // Get values
+
+            const title = titleInput.value.trim();
+
+            const author = authorInput.value.trim();
+
+            const category = categoryInput.value.trim();
+
+            const year = yearInput.value.trim();
+
+
+            // Validation
+
+            if (
+                title === "" ||
+                author === "" ||
+                category === "" ||
+                year === ""
+            ) {
+
+                alert("Please fill all the fields");
+
+                return;
+            }
+
+
+            // Create book object
+
+            const book = {
+
+                title: title,
+
+                author: author,
+
+                category: category,
+
+                year: year,
+
+                status: "Available"
+
+            };
+
+
+            // Create new book
+
+            if (editIndex === null) {
+
+                books.push(book);
+
+            }
+
+
+            // Update existing book
+
+            else {
+
+                // Keep old status
+
+                book.status = books[editIndex].status;
+
+                books[editIndex] = book;
+
+                editIndex = null;
+
+                submitBtn.innerText = "Add Book";
+            }
+
+
+            // Save books
+
+            saveBooks();
+
+            displayBooks();
+
+            updateStats();
+
+            bookForm.reset();
+
+        });
+
+
+
+        // Save books to Local Storage
+
+        function saveBooks() {
+
+            localStorage.setItem("books", JSON.stringify(books));
+
+        }
+
+
+
+        // Display books
+
+        function displayBooks(bookArray = books) {
+
+            // Clear table
+
+            bookTable.innerHTML = "";
+
+
+            // Check if there are no books
+
+            if (bookArray.length === 0) {
+
+                noBooks.style.display = "block";
+
+            }
+
+            else {
+
+                noBooks.style.display = "none";
+
+            }
+
+
+            // Loop through books
+
+            bookArray.forEach(function(book, index) {
+
+                const row = document.createElement("tr");
+
+
+                // Find original index
+
+                const originalIndex = books.indexOf(book);
+
+
+                // Status class
+
+                let statusClass = "";
+
+                if (book.status === "Available") {
+
+                    statusClass = "available";
+
+                }
+
+                else {
+
+                    statusClass = "issued";
+
+                }
+
+
+                // Status button
+
+                let statusButton = "";
+
+
+                if (book.status === "Available") {
+
+                    statusButton = `
+                        <button
+                            class="issue-btn"
+                            onclick="issueBook(${originalIndex})">
+                            Issue
+                        </button>
+                    `;
+
+                }
+
+                else {
+
+                    statusButton = `
+                        <button
+                            class="return-btn"
+                            onclick="returnBook(${originalIndex})">
+                            Return
+                        </button>
+                    `;
+
+                }
+
+
+                // Create table row
+
+                row.innerHTML = `
+
+                    <td>${index + 1}</td>
+
+                    <td>${book.title}</td>
+
+                    <td>${book.author}</td>
+
+                    <td>${book.category}</td>
+
+                    <td>${book.year}</td>
+
+                    <td class="${statusClass}">
+                        ${book.status}
+                    </td>
+
+                    <td>
+
+                        <button
+                            class="edit-btn"
+                            onclick="editBook(${originalIndex})">
+                            Edit
+                        </button>
+
+                        <button
+                            class="delete-btn"
+                            onclick="deleteBook(${originalIndex})">
+                            Delete
+                        </button>
+
+                        ${statusButton}
+
+                    </td>
+
+                `;
+
+
+                bookTable.appendChild(row);
+
+            });
+
+
+            // Update statistics
+
+            updateStats();
+
+        }
+
+
+
+        // Edit book
+
+        function editBook(index) {
+
+            const book = books[index];
+
+
+            // Put values into form
+
+            titleInput.value = book.title;
+
+            authorInput.value = book.author;
+
+            categoryInput.value = book.category;
+
+            yearInput.value = book.year;
+
+
+            // Store index
+
+            editIndex = index;
+
+
+            // Change button text
+
+            submitBtn.innerText = "Update Book";
+
+        }
+
+
+
+        // Delete book
+
+        function deleteBook(index) {
+
+            const confirmDelete = confirm(
+                "Are you sure you want to delete this book?"
+            );
+
+
+            if (!confirmDelete) {
+
+                return;
+
+            }
+
+
+            // Remove book
+
+            books.splice(index, 1);
+
+
+            // Save
+
+            saveBooks();
+
+            displayBooks();
+
+            updateStats();
+
+        }
+
+
+
+        // Issue book
+
+        function issueBook(index) {
+
+            books[index].status = "Issued";
+
+
+            saveBooks();
+
+            displayBooks();
+
+            updateStats();
+
+        }
+
+
+
+        // Return book
+
+        function returnBook(index) {
+
+            books[index].status = "Available";
+
+
+            saveBooks();
+
+            displayBooks();
+
+            updateStats();
+
+        }
+
+
+
+        // Search books
+
+        searchInput.addEventListener("input", function() {
+
+            const searchText = searchInput.value.toLowerCase();
+
+
+            const filteredBooks = books.filter(function(book) {
+
+                return (
+
+                    book.title.toLowerCase().includes(searchText)
+
+                    ||
+
+                    book.author.toLowerCase().includes(searchText)
+
+                    ||
+
+                    book.category.toLowerCase().includes(searchText)
+
+                );
+
+            });
+
+
+            displayBooks(filteredBooks);
+
+        });
+
+
+
+        // Update statistics
+
+        function updateStats() {
+
+            // Total books
+
+            totalBooks.innerText = books.length;
+
+
+            // Available books
+
+            const available = books.filter(function(book) {
+
+                return book.status === "Available";
+
+            });
+
+
+            availableBooks.innerText = available.length;
+
+
+            // Issued books
+
+            const issued = books.filter(function(book) {
+
+                return book.status === "Issued";
+
+            });
+
+
+            issuedBooks.innerText = issued.length;
+
+        }
+
+    </script>
+
+</body>
+
+</html>

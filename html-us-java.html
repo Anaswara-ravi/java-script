@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* .red{
+            color: white;
+            background-color: darkgreen;
+        }
+        .pink{
+            font-size: 100px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        } */
+    </style>
+</head>
+<body>
+    <!-- add a html element using the javascript
+     <h2>gu mrng</h2>
+     <script>
+        let head=document.createElement("h2");
+        head.innerText="welcome to my website"
+        document.body.appendChild(head);        
+
+
+        let para=document.createElement("p");
+         para.innerText="welcome to my website"
+        document.body.appendChild(para);
+               
+        
+        let btn=document.createElement("button");
+        btn.innerText="click me !!!!!!"
+        document.body.appendChild(btn);
+     </script> -->
+
+
+<!-- //class list -->
+<!-- 
+<p id="message">hello welcome all !!!!!!!!!!!!!!!!!!!!!!!!!!!!</p>
+<script>
+let msg=document.getElementById("message");
+msg.classList.add("red","pink")
+
+
+
+msg.classList.remove("red");//remove from class list
+
+msg.classList.toggle("red")//toggle used to opposite like when the red is already exits its remove -and not exits its add red
+msg.classList.toggle("pink")
+</script> -->
+
+
+<!-- <h1 class="head">Welcome to my website!!!!!!!!!!!!!!!!!</h1>
+
+<button onclick="addClass()">Add</button>
+<button onclick="removeClass()">Remove</button>
+<button onclick="toggleClass()">Toggle</button>
+
+<style>
+    .red {
+        color: red;
+    }
+
+    .pink {
+        background-color: pink;
+    }
+</style>
+
+<script>
+    let head1 = document.querySelector(".head");
+
+    function addClass() {
+        head1.classList.add("red", "pink");
+    }
+
+    function removeClass() {
+        head1.classList.remove("pink");
+    }
+
+    function toggleClass() {
+        head1.classList.toggle("red");
+    }
+</script> -->
+
+
+
+event properties
+<button id="btn">Don't click me 😠</button>
+
+<script>
+    let button = document.getElementById("btn");
+
+    // button.onclick = function() {
+    //     alert("Why are you clicking me, you idiot! 😠 😡 🤬");
+    // };
+
+    // function showmessage(){
+    //     alert("u again!!!!1")
+    // }
+    // button.onclick=showmessage;
+  
+
+    //addEventListener
+
+
+
+    // button.addEventListener("click",function(){
+    //     alert("button is clicked u again plss donyt prees me  😠 ");
+    // });
+
+    
+    // function showmessage(){
+    //     alert("u again!!!!1")
+    //  }
+    //  button.addEventListener("click",showmessage);
+
+
+
+// why  addEventListener is import its sed to perform mulitiple action
+
+
+    // button.onclick=function(){
+    //     console.log("first")
+    // }
+    //  button.onclick=function(){
+    //     console.log("second")
+    // }
+    //  button.onclick=function(){
+    //     console.log("third")
+    // }
+
+
+
+    // button.addEventListener("click",function(){
+    //     console.log("first")
+    // })
+    
+    // button.addEventListener("click",function(){
+    //     console.log("second")
+    // })
+    
+    // button.addEventListener("click",function(){
+    //     console.log("third")
+    // })
+
+
+
+
+
+    // events eg:mouseover,mouseout,keydown,keyup,input,change
+    // button.addEventListener("mouseout",function(){
+    //     console.log("hai hello");
+    // })
+
+
+    button.addEventListener("click",function(event)){
+        console.log(event.target)
+    }
+    
+
+
+
+
+
+
+
+</script>
+<!-- </script> -->
+
+
+</body>
+</html>

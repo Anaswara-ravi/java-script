@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- <h1 id="title">Hello world</h1>
+    <p id="para">Welcome to my website</p>
+    <button id="button">Click Me</button>
+
+    <script>
+        console.log(document);
+
+        const heading = document.getElementById("title");
+        console.log(heading);
+        console.log(heading.textContent);
+        heading.textContent="hello javascript"//update/manipulate
+
+        const p = document.getElementById("para");
+        console.log(p);
+        console.log(p.textContent);
+        p.textContent="welcome !!!!!"
+
+        const btn = document.getElementById("button");
+        console.log(btn);
+         btn.textContent="click" -->
+
+<!-- /*get element by class name*/ -->
+
+ <!-- <p class="msg">hai</p>
+<p class="msg">hello</p>
+<p class="msg">welcome</p>
+
+<script>
+    const elements = document.getElementsByClassName("msg");
+    console.log(elements);
+      console.log(elements[0]);//printing
+        console.log(elements[1]);
+          console.log(elements[2]);
+    elements[0].textContent="hai javascript"
+    elements[1].textContent="hello javascript"//updating
+    elements[2].textContent="Byeeeee Byeeee"
+    for(i=0;i<elements.length;i++){
+        elements[i].style.color="red"
+    } -->
+
+<!-- //get element by tag name -->
+
+
+<!-- <h1>welcome</h1>
+<p>hello thank you</p>
+<p>byeee byee!!!!!</p>
+
+<script>
+    const para = document.getElementsByTagName("p");
+    console.log(para);
+     console.log(para[0]);
+      para[1].textContent="Byeeeee see you"
+     const head = document.getElementsByTagName("h1");
+    console.log(head);
+for(i=0;i<para.length;i++){
+        para[i].style.color="red"
+    } -->
+<!-- 
+</script> -->
+
+
+
+
+<!-- 
+</script> -->
+
+<!-- quary -->
+
+<!-- <h1>hai all</h1>
+<h1>gud mrng</h1>
+<p>welcome alll</p>
+<p id="pa">are u ready</p>
+<p class="pa2">lets enjoy</p> -->
+
+
+<!-- <h1 class="box">hai hello</h1>
+<p class="p1">thank you for coming!!!</p>
+<p class="p1">have a nice day</p>
+<p class="p1">thank you</p> -->
+
+<!-- <div class="box">
+    hello
+    <span style="display: none;">world</span>
+</div> -->
+
+
+<img id="image">
+<input type="text" id="username" class="user">
+
+<script>
+//   const para=document.querySelector("p") 
+//   console.log(para);
+
+//    const heading=document.querySelector("h1") 
+//   console.log(heading);
+
+//      const para2=document.querySelector("#pa") 
+//   console.log(para2);
+
+//    const para3=document.querySelector(".pa2") 
+//   console.log(para3);
+
+//   const paranew=document.querySelectorAll(".p1")
+//     console.log(paranew);
+
+//   paranew.forEach((element)=>{
+//    console.log(element.textContent);
+//   })
+
+
+// const head=document.querySelector(".box");
+// console.log(head);
+// // console.log(head.textContent); changing the html content using textcontent,innertext,innerHTML
+// console.log(head.innerText);
+// console.log(head.innerHTML);
+
+// head.innerHTML="<h1>go to ur home <h1>";
+
+//     head.innerHTML=`                    
+//     <h1>the website this not wrking<h1>
+//         <h1>go and load after 7am<h1>
+    
+//     `
+
+// const text=document.querySelector(".box");
+// console.log(text.innerText);
+// console.log(text.textContent);
+
+
+
+let photo=document.querySelector("#image");
+console.log(photo);
+photo.setAttribute("alt","image")
+photo.setAttribute("src","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdbBFbmkNfHug7Bx-XpXQJ7xVJISMN2QcIAi___-xXgD4MLx3vyUOczpy0&s=10")
+ 
+
+let input = document.querySelector("input");
+
+console.log(input);
+
+let src = input.getAttribute("id");
+
+console.log(src);
+
+let src1 = input.getAttribute("type");
+
+console.log(src1);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+</script>
+</body>
+</html>

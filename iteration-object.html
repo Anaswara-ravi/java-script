@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+
+
+        // 1. Using forEach(), print only the even numbers from the array:
+        //  let numbers = [12, 7, 25, 18, 30, 41, 50];
+    //     let numbers = [12, 7, 25, 18, 30, 41, 50];
+
+
+        //     numbers.forEach((element) => {
+        //     if (element % 2 == 0) {
+        //         console.log(element);
+        //     }
+        // });
+
+
+
+
+    // 2. Using map(), create a new array containing the length of each string: 
+    // let names = ["Rahul", "Anu", "Vishnu", "Meera", "Arjun"];
+
+        // let names = ["Rahul", "Anu", "Vishnu", "Meera", "Arjun"];
+        //  let newarr=names.map(Element => Element.length)
+        // console.log(newarr)
+
+
+
+    // 3. Using filter(), find all strings that have more than 5 characters: 
+    // let words = ["apple", "banana", "cat", "elephant", "dog", "computer"];
+
+
+        //   let words = ["apple", "banana", "cat", "elephant", "dog", "computer"];
+        //  let result=words.filter(Element=>Element.length>5)
+        //  console.log(result)
+
+
+    // 4. Using filter() and conditions, create a new array containing numbers divisible by both 3 and 5: 
+    // let numbers = [10, 15, 20, 30, 45, 50, 60, 72];
+        // let numbers = [10, 15, 20, 30, 45, 50, 60, 72];
+        // let result=numbers.filter(Element=>Element%3==0 && Element%5==0)
+        //   console.log(result)
+
+
+    // 5. Using map(), convert all names into uppercase: 
+    // let names = ["rahul", "anu", "vishnu", "meera"];
+    
+    
+     // let names = ["Rahul", "Anu", "Vishnu", "Meera", "Arjun"];
+     //       let newarr=names.map(Element => Element.toUpperCase())
+     //      console.log(newarr)
+        
+    // 6. Using find(), find the first number greater than 50: 
+    // let numbers = [12, 25, 48, 67, 35, 89, 100];
+        // let numbers = [12, 25, 48, 67, 35, 89, 100];
+        //  let result=numbers.find(Element=>Element>50)
+        //  console.log(result)
+
+
+    // 7. Using findIndex(), find the index of the first string that starts with "A": 
+    // let names = ["Rahul", "Meera", "Arun", "Anu", "Vishnu"];
+    //    let names = ["Rahul", "Meera", "Arun", "Anu", "Vishnu"];
+    //     let result = names.findIndex(Element => Element.startsWith("A"));
+    //     console.log(result);
+
+    // 8. Using some(), check whether the array contains at least one negative number:
+          //let numbers = [10, 20, -5, 30, 40];
+
+        //   let numbers = [10, 20, -5, 30, 40];
+        //  let newarr=numbers.some(Element => Element < 0)
+        // console.log(newarr)
+
+    // 9. Using every(), check whether all numbers in the array are positive: 
+    // let numbers = [10, 25, 8, 40, 15];
+
+        //  let numbers = [10, 25, 8, 40, 15];
+        //  let newarr=numbers.every(Element => Element > 0)
+        //  console.log(newarr)
+
+    // 10. Using reduce(), calculate the total price:
+        //  let prices = [250, 500, 150, 700, 300];
+        //    let prices = [250, 500, 150, 700, 300];
+        // let result=prices.reduce(function(total,num){
+        //      return total+num;
+        // },0);
+        //  console.log(result)
+
+    // 11. Using forEach() and string methods, print only the names whose first letter is "A": 
+    // let names = ["Arun", "Rahul", "Anu", "Vishnu", "Amal"];
+    //let names = ["Arun", "Rahul", "Anu", "Vishnu", "Amal"];
+
+//     names.forEach((element) => {
+//     if (element.startsWith("A")) {
+//         console.log(element);
+//     }
+// });
+
+// 12. Using map() and conditions, create a new array where even numbers are multiplied by 2 and odd numbers are multiplied by 3:
+    //  let numbers = [2, 5, 8, 11, 14, 17];
+    //   let result = numbers.map(Element => 
+    //     Element % 2 == 0 ? Element * 2 : Element * 3
+    // );
+    // console.log(result)
+
+    // 13.let numbers = [2, 5, 8, 11, 14, 17]; 13. Using filter() and string methods, find all words that contain the letter "a":
+    // let words = ["apple", "dog", "banana", "cat", "orange", "sky"];
+
+        // let words = ["apple", "dog", "banana", "cat", "orange", "sky"];
+
+        // let result = words.filter(Element => Element.includes("a"));
+
+        // console.log(result);
+
+        // 14. Using a for...in loop, count how many properties have a value greater than 50:
+         //let marks = {    math: 75,    science: 45,    english: 82,    computer: 90,    physics: 35 };
+    //       let marks = {
+    //      math: 75,
+    //     science: 45,
+    //     english: 82,
+    //     computer: 90,
+    //     physics: 35
+    // };
+
+    // let count = 0;
+
+    // for (let key in marks) {
+    // if (marks[key] > 50) {
+    //     count++;
+    // }
+    // }
+
+    // console.log(count);
+// 15. Using for...in, conditions, and string methods, print the names of students who scored 50 or more:
+//  let students = {    Rahul: 45,    Anu: 78,    Vishnu: 32,    Meera: 65,    Arun: 90 };
+
+
+//         let students = {
+//     Rahul: 45,
+//     Anu: 78,
+//     Vishnu: 32,
+//     Meera: 65,
+//     Arun: 90
+// };
+
+// for (let key in students) {
+//     if (students[key] >= 50) {
+//         console.log(key);
+//     }
+// }
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  //object
+
+  
+  //object is a collection of key-value pairs -mulitiple related values store as the key value-pair 
+  
+    //eg:
+//         let person={
+//             name:"anu",
+//             age:20,
+//             place:"palakkad"
+//         }
+//         console.log(person)
+//         console.log(person["age"])
+
+//  //2eg:
+//     let actor=new Object()
+//     actor.name="vijay"
+//     actor.age="50"
+//     actor.movie="jilla"
+//     console.log(actor)
+
+//  let person={
+//      name:"anu",
+//      age:22,
+//      place:"pkd",
+//      skills:["html","css","javascript"],
+//      greet:function(){
+//          console.log(`gud mrng ${this.name}`)
+//          console.log(this)
+//                                             //how to use function ,array ,new object in the object 
+//     },
+//      add:{
+//          city:"pkd",
+//          state:"kerala",
+//          country:"india"
+//      }
+
+//  }
+// console.log(person.name)
+//  console.log(person.skills)
+//  person.greet()
+//  console.log(person.add)
+// console.log(this)
+//this is not wrk in the arrow function
+
+//this-currently executing
+
+
+// console.log(Object.keys(person));
+// console.log(Object.entries(person));
+// console.log(Object.values(person));
+
+
+// for(let i in person){
+//     console.log(person[i]);
+                                                ///for in and for of using oject
+// }
+
+// for(let i of person.skills){
+//     console.log(i);
+// }
+
+
+
+
+// let students = [
+//     {
+//         id: 1,
+//         name: "Anu",
+//         age: 21,
+//         course: "MERN"
+//     },
+//     {
+//         id: 2,
+//         name: "Rahul",
+//         age: 22,
+//         course: "Python"
+//     }
+// ];
+
+
+// function addStudent() {
+//     let id = Number(prompt("Enter student ID:"));
+//     let name = prompt("Enter student name:");
+//     let age = Number(prompt("Enter student age:"));
+//     let course = prompt("Enter course:");
+
+//     let student = {
+//         id: id,
+//         name: name,
+//         age: age,
+//         course: course
+//     };
+
+//     students.push(student);
+//     console.log("Student added successfully");
+// }
+
+
+// function getStudents() {
+//     for (let i = 0; i < students.length; i++) {
+//         console.log(students[i]);
+//     }
+// }
+
+
+// function updateStudent() {
+//     let id = Number(prompt("Enter student ID to update:"));
+
+//     let student = students.find(function(s) {
+//         return s.id === id;
+//     });
+
+//     if (student) {
+//         student.name = prompt("Enter new name:");
+//         student.age = Number(prompt("Enter new age:"));
+//         student.course = prompt("Enter new course:");
+
+//         console.log("Student updated successfully");
+//     } else {
+//         console.log("Student not found");
+//     }
+// }
+
+
+// function deleteStudent() {
+//     let id = Number(prompt("Enter student ID to delete:"));
+
+//     let index = students.findIndex(function(s) {
+//         return s.id === id;
+//     });
+
+//     if (index !== -1) {
+//         students.splice(index, 1);
+//         console.log("Student deleted successfully");
+//     } else {
+//         console.log("Student not found");
+//     }
+// }
+
+
+// let choice;
+
+// while (choice !== 5) {
+//     choice = Number(prompt(
+//         "1. Add Student\n" +
+//         "2. View Students\n" +
+//         "3. Update Student\n" +
+//         "4. Delete Student\n" +
+//         "5. Exit\n" +
+//         "Enter your choice:"
+//     ));
+
+//     if (choice === 1) {
+//         addStudent();
+//     } else if (choice === 2) {
+//         getStudents();
+//     } else if (choice === 3) {
+//         updateStudent();
+//     } else if (choice === 4) {
+//         deleteStudent();
+//     } else if (choice === 5) {
+//         alert("Program exited");
+//     } else {
+//         alert("Invalid choice");
+//     }
+// }
+
+// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
+//in using to check the oru property athil undo enn nokkan
+// let students = [
+//     {
+//          id: 1,
+//          name: "Anu",
+//          age: 21,
+//          course: "MERN"
+//      },
+//      {
+//          id: 2,
+//          name: "Rahul",
+//          age: 22,
+//          course: "Python"
+//      }
+//  ];
+
+// if(students.hasOwnProperty("name")){
+//     console.log(true)
+// }else{
+//     console.log(false)
+// }
+//map is a key value pair used to store all the types(string,number,undefined,boolean)
+
+// const myMap = new Map([
+//     ["type", "student"],
+//     [1, "vishnu"],
+//     [2, "abhi"],
+//     [2, "raji"]
+// ]);
+
+// console.log(myMap);
+// const map=new Map();
+// map.set("name","abhi")
+// map.set(1,"one")
+// map.set(2,"raji")
+// console.log(map.get("name"));
+// console.log(map.get(1));
+// console.log(map.has("name"));
+// console.log(map.has("age"));
+// console.log(map.size);
+
+//local storage-web storage -permanent  storage-capacity 5mb-10mb -lyf span-until we delete-store as a key value pair
+    // localStorage.setItem("name", "Anu");
+    // let name = localStorage.getItem("name");
+    // console.log(name);
+    // // localStorage.removeItem("name");
+    // // localStorage.clear();
+
+
+//session storage-is a temporary storage -5mb-tomb capacity -domain il storing -lyf sapn -until closing the tab
+    // sessionStorage.setItem("name", "Anu");
+    //  let name = sessionStorage.getItem("name");
+    //  console.log(name);
+    //  sessionStorage.removeItem("name");
+    //  sessionStorage.clear();
+function addStudent() {
+    let id = prompt("Enter ID:");
+    let name = prompt("Enter name:");
+    let age = prompt("Enter age:");
+    let course = prompt("Enter course:");
+
+    localStorage.setItem("id", id);
+    localStorage.setItem("name", name);
+    localStorage.setItem("age", age);
+    localStorage.setItem("course", course);
+
+    console.log("Student added");
+}
+
+function viewStudent() {
+    let id = localStorage.getItem("id");
+
+    if (id === null) {
+        console.log("No student found");
+    } else {
+        console.log("ID:", id);
+        console.log("Name:", localStorage.getItem("name"));
+        console.log("Age:", localStorage.getItem("age"));
+        console.log("Course:", localStorage.getItem("course"));
+    }
+}
+
+
+function deletestudent(){
+    localStorage.deletestudent("id")
+    localStorage.deletestudent("name")
+    localStorage.deletestudent("age")
+    localStorage.deletestudent("course")
+
+
+    console.log("delete student details!!!!!!!")
+}
+let choice;
+
+while (choice !== 4) {
+    choice = Number(prompt(
+        "1. Add Student\n" +
+        "2. View Student\n" +
+        "3. Delete Student\n" +
+        "4. Exit\n" +
+        "Enter choice:"
+    ));
+
+    if (choice === 1) {
+        addStudent();
+    } else if (choice === 2) {
+        viewStudent();
+    } else if (choice === 3) {
+        deleteStudent();
+    } else if (choice === 4) {
+        alert("Program exited");
+    } else {
+        alert("Invalid choice");
+    }
+}
+
+
+
+
+    </script>
+    
+</body>
+</html>

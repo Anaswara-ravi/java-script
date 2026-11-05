@@ -221,3 +221,138 @@
 // for(i=0;i<5;i++){
 //     console.log(animal)
 // }
+
+
+
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //Array iteration methods
+//1.foreach
+
+
+
+    //syntax:
+    //array.foreach(function(element,index,array)){
+    //code block
+    //}
+
+   
+   
+    //sample program:
+    //  let arr = [1, 2, 3, 4];
+
+    // arr.forEach(function(element, index, array) {
+    //     console.log(element**2);
+    // });
+
+
+//print even num 
+//    let arr = [1,2,3,4,5,6,7,8,9,10];
+
+// arr.forEach(function(element) {
+//     if (element % 2 == 0){
+//         console.log(element);
+//     }
+// }); 
+
+
+
+//2.map
+
+
+        //map is provide new array and new function to each elemnet
+
+    //syntax:
+    //let newarray=array.map(function(elemnt,index,array){code block})
+   
+   
+    //sample pro:
+    // let arr=[1,2,3,4,5]
+    // let newarr=arr.map(Element => Element*Element)
+    // console.log(newarr)
+
+// let arr = [1, 2, 3, 4, 5];
+// let newarr = arr.map(element => element % 2 == 0);
+// console.log(newarr);
+
+
+
+// let arr2=["mango","apple","orange"]
+// let newarr=arr2.map((Element)=>Element.toUpperCase())
+// console.log(newarr)
+
+
+
+//3.filtter
+
+
+    //check conditon and select only the matching element
+    //syntx:
+    //let filterarray=array.filtter(function(elemnet,index,array){codeblock})
+
+// //sample pro
+// let arr=[1,2,3,4,5]
+// let even=arr.filter(Element=>Element%2==0)
+// console.log(even)
+
+
+
+//4.reduce
+    //takes all the value and give single value eg.calculat sum,sub something like that
+    //syntax
+    //let result=arr.reduce(function(accmuator,elemnt,index,array)(code block),initialvalue)
+// //eg pro:
+// let num=[1,2,3,4,5]
+// let result=num.reduce(function(total,num){
+//     return total*num;
+// },1);
+// console.log(result)
+
+
+//5.find
+
+
+    //which condition koduthal first meet cheyunna elemnt tharum
+    //syntax:
+        //let result=arr.find(function(elemnet,index,array){condition})
+
+    //eg:
+        // let num=[1,2,3,4,5,6,7,8]
+        // let result=num.find(Element=>Element%2==0)
+        // console.log(result)
+
+
+    
+
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        //=>for in
+        // let arr=[1,2,3,4,5]
+        // for(let i in arr){
+        //     console.log(arr(i)
+        // }
+
+
+
+
+
+
